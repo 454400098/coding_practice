@@ -1,0 +1,44 @@
+package isSubtree;
+
+class TreeNode{
+	int val;
+	TreeNode left;
+	TreeNode right;
+	TreeNode(int x){
+		val = x;
+	}
+}
+public class Solution {
+	
+    public static boolean isSame(TreeNode snew, TreeNode t){
+
+        if(snew.val != t.val){
+            return false;
+        }
+        
+        if(snew.left!=null && t.left!=null){
+            boolean res = isSame(snew.left,t.left);
+            if(res == false) return false;
+        }
+        
+        if(snew.right!=null && t.right!=null){
+            boolean res = isSame(snew.right,t.right);
+            if(res == false) return false;
+        }
+        
+        return true;
+    }
+    
+    
+    public static void main(String[] args) {
+    	TreeNode r = new TreeNode(4);
+    	r.left = new TreeNode(1);
+    	r.right = new TreeNode(2);
+    	
+    	TreeNode l = new TreeNode(4);
+    	l.left = new TreeNode(1);
+    	l.right = new TreeNode(1);
+    	
+    	System.out.println(isSame(l,r));
+    }
+}

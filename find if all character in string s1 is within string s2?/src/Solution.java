@@ -30,7 +30,6 @@ public class Solution {
 	public static void main(String[] args) {
 		String s1 = "aaaabc";
 		String s2 = "ae";
-		
 		System.out.println(isallin(s1,s2));
 	}
 }

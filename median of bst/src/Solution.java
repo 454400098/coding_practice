@@ -45,5 +45,9 @@ public class Solution {
 		t.right = new TreeNode(8);
 		t.right.left = new TreeNode(7);
 		ans(t);
+		
+		String s = "asda";
+		char[] c = s.toCharArray();
+		
 	}
 }

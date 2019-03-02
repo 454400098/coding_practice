@@ -1350,3 +1350,326 @@ Stack Trace
 	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
 	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
 	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2019-03-01 21:39:09.534
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Core Exception [code 272] Could not write file: /Users/hz288/eclipse-workspace/First Unique Character in a String
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length; i ++){
+            if(map.get(arr[i]) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}.
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:49)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:733)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2289)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2316)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5733)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:105)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Caused by: java.nio.file.FileSystemException: /Users/hz288/eclipse-workspace/First Unique Character in a String
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length; i ++){
+            if(map.get(arr[i]) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}: File name too long
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:91)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:384)
+	at java.nio.file.Files.createDirectory(Files.java:674)
+	at java.nio.file.Files.createAndCheckIsDirectory(Files.java:781)
+	at java.nio.file.Files.createDirectories(Files.java:767)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.mkdir(LocalFile.java:307)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.write(FileSystemResourceManager.java:1147)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.internalWrite(FileSystemResourceManager.java:664)
+	at org.eclipse.core.internal.resources.Project.writeDescription(Project.java:1378)
+	at org.eclipse.core.internal.resources.Project.writeDescription(Project.java:1359)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:290)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:248)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.createProject(BuildPathsBlock.java:715)
+	at org.eclipse.jdt.ui.wizards.JavaCapabilityConfigurationPage.createProject(JavaCapabilityConfigurationPage.java:254)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.updateProject(NewJavaProjectWizardPageTwo.java:246)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.performFinish(NewJavaProjectWizardPageTwo.java:497)
+	at org.eclipse.jdt.internal.ui.wizards.JavaProjectWizard.finishPage(JavaProjectWizard.java:76)
+	at org.eclipse.jdt.internal.ui.wizards.NewElementWizard$2.run(NewElementWizard.java:120)
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:38)
+	... 6 more
+Caused by: org.eclipse.core.runtime.CoreException: Could not write file: /Users/hz288/eclipse-workspace/First Unique Character in a String
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length; i ++){
+            if(map.get(arr[i]) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}.
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:45)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.checkTargetIsNotWritable(LocalFile.java:95)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.mkdir(LocalFile.java:329)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.write(FileSystemResourceManager.java:1147)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.internalWrite(FileSystemResourceManager.java:664)
+	at org.eclipse.core.internal.resources.Project.writeDescription(Project.java:1378)
+	at org.eclipse.core.internal.resources.Project.writeDescription(Project.java:1359)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:290)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:248)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.createProject(BuildPathsBlock.java:715)
+	at org.eclipse.jdt.ui.wizards.JavaCapabilityConfigurationPage.createProject(JavaCapabilityConfigurationPage.java:254)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.updateProject(NewJavaProjectWizardPageTwo.java:246)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.performFinish(NewJavaProjectWizardPageTwo.java:497)
+	at org.eclipse.jdt.internal.ui.wizards.JavaProjectWizard.finishPage(JavaProjectWizard.java:76)
+	at org.eclipse.jdt.internal.ui.wizards.NewElementWizard$2.run(NewElementWizard.java:120)
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:38)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:733)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2289)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2316)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5733)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:105)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Caused by: java.nio.file.FileSystemException: /Users/hz288/eclipse-workspace/First Unique Character in a String
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length; i ++){
+            if(map.get(arr[i]) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}: File name too long
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:91)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:384)
+	at java.nio.file.Files.createDirectory(Files.java:674)
+	at java.nio.file.Files.createAndCheckIsDirectory(Files.java:781)
+	at java.nio.file.Files.createDirectories(Files.java:767)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.mkdir(LocalFile.java:307)
+	... 19 more
+!SUBENTRY 1 org.eclipse.core.filesystem 4 272 2019-03-01 21:39:09.535
+!MESSAGE Could not write file: /Users/hz288/eclipse-workspace/First Unique Character in a String
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length; i ++){
+            if(map.get(arr[i]) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}.
+!STACK 0
+java.nio.file.FileSystemException: /Users/hz288/eclipse-workspace/First Unique Character in a String
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length; i ++){
+            if(map.get(arr[i]) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}: File name too long
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:91)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:384)
+	at java.nio.file.Files.createDirectory(Files.java:674)
+	at java.nio.file.Files.createAndCheckIsDirectory(Files.java:781)
+	at java.nio.file.Files.createDirectories(Files.java:767)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.mkdir(LocalFile.java:307)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.write(FileSystemResourceManager.java:1147)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.internalWrite(FileSystemResourceManager.java:664)
+	at org.eclipse.core.internal.resources.Project.writeDescription(Project.java:1378)
+	at org.eclipse.core.internal.resources.Project.writeDescription(Project.java:1359)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:290)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:248)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.createProject(BuildPathsBlock.java:715)
+	at org.eclipse.jdt.ui.wizards.JavaCapabilityConfigurationPage.createProject(JavaCapabilityConfigurationPage.java:254)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.updateProject(NewJavaProjectWizardPageTwo.java:246)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.performFinish(NewJavaProjectWizardPageTwo.java:497)
+	at org.eclipse.jdt.internal.ui.wizards.JavaProjectWizard.finishPage(JavaProjectWizard.java:76)
+	at org.eclipse.jdt.internal.ui.wizards.NewElementWizard$2.run(NewElementWizard.java:120)
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:38)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:733)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2289)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2316)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5733)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:105)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2019-03-01 21:39:18.099
+!MESSAGE Internal Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not write file: /Users/hz288/eclipse-workspace/First Unique Character in a String
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length; i ++){
+            if(map.get(arr[i]) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}.
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:45)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.checkTargetIsNotWritable(LocalFile.java:95)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.mkdir(LocalFile.java:329)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.write(FileSystemResourceManager.java:1147)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.internalWrite(FileSystemResourceManager.java:664)
+	at org.eclipse.core.internal.resources.Project.writeDescription(Project.java:1378)
+	at org.eclipse.core.internal.resources.Project.writeDescription(Project.java:1359)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:290)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:248)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.createProject(BuildPathsBlock.java:715)
+	at org.eclipse.jdt.ui.wizards.JavaCapabilityConfigurationPage.createProject(JavaCapabilityConfigurationPage.java:254)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.updateProject(NewJavaProjectWizardPageTwo.java:246)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.access$2(NewJavaProjectWizardPageTwo.java:213)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo$1UpdateRunnable.run(NewJavaProjectWizardPageTwo.java:174)
+	at org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation.execute(WorkspaceModifyDelegatingOperation.java:68)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.lambda$0(WorkspaceModifyOperation.java:107)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2289)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2316)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:128)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Caused by: java.nio.file.FileSystemException: /Users/hz288/eclipse-workspace/First Unique Character in a String
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length; i ++){
+            if(map.get(arr[i]) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}: File name too long
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:91)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:384)
+	at java.nio.file.Files.createDirectory(Files.java:674)
+	at java.nio.file.Files.createAndCheckIsDirectory(Files.java:781)
+	at java.nio.file.Files.createDirectories(Files.java:767)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.mkdir(LocalFile.java:307)
+	... 17 more
+!SUBENTRY 1 org.eclipse.core.filesystem 4 272 2019-03-01 21:39:18.100
+!MESSAGE Could not write file: /Users/hz288/eclipse-workspace/First Unique Character in a String
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length; i ++){
+            if(map.get(arr[i]) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}.
+!STACK 0
+java.nio.file.FileSystemException: /Users/hz288/eclipse-workspace/First Unique Character in a String
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length; i ++){
+            if(map.get(arr[i]) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}: File name too long
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:91)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:384)
+	at java.nio.file.Files.createDirectory(Files.java:674)
+	at java.nio.file.Files.createAndCheckIsDirectory(Files.java:781)
+	at java.nio.file.Files.createDirectories(Files.java:767)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.mkdir(LocalFile.java:307)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.write(FileSystemResourceManager.java:1147)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.internalWrite(FileSystemResourceManager.java:664)
+	at org.eclipse.core.internal.resources.Project.writeDescription(Project.java:1378)
+	at org.eclipse.core.internal.resources.Project.writeDescription(Project.java:1359)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:290)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:248)
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathsBlock.createProject(BuildPathsBlock.java:715)
+	at org.eclipse.jdt.ui.wizards.JavaCapabilityConfigurationPage.createProject(JavaCapabilityConfigurationPage.java:254)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.updateProject(NewJavaProjectWizardPageTwo.java:246)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.access$2(NewJavaProjectWizardPageTwo.java:213)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo$1UpdateRunnable.run(NewJavaProjectWizardPageTwo.java:174)
+	at org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation.execute(WorkspaceModifyDelegatingOperation.java:68)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.lambda$0(WorkspaceModifyOperation.java:107)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2289)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2316)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:128)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)

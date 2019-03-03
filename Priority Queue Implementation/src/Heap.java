@@ -34,17 +34,19 @@ public class Heap<AnyType extends Comparable<AnyType>> {
 	private void percolatingDown(int k) {
 		AnyType tmp = heap[k]; 
 		int child;
-		
+	
 		for(; 2*k <=size; k = child) {
 			child = 2*k;
-			if(child!= size && heap[child].compareTo(heap[child+1]) > 0) child++;
-			if(tmp.compareTo(heap[child]) > 0) heap[k] = heap[child];
+			if(child!= size && heap[child].compareTo(heap[child+1]) > 0) child++;  //find the smallest child of current heap[k]
+			if(tmp.compareTo(heap[child]) > 0) heap[k] = heap[child];			//swap child with k
 			else
 				break;
 		}
 		
 		heap[k] = tmp;
 	}
+	
+	
 	
 	// Sorts a given array of items
 	public void heapSort(AnyType[] array) {
@@ -74,7 +76,7 @@ public class Heap<AnyType extends Comparable<AnyType>> {
 	{
 		if(size == 0) throw new RuntimeException();
 		AnyType min = heap[1];
-		heap[1] = heap[size--];
+		heap[1] = heap[size--];  //put the last leaf node to head and delete last leaf node
 		percolatingDown(1);  // this is actually bubble down dpv p116 steps g - h
 		return min;
 	}
@@ -100,31 +102,37 @@ public class Heap<AnyType extends Comparable<AnyType>> {
 	
 	public String toString() {
 		String out = "";
-		for(int k = 0; k <=size; k++) out+=heap[k]+" ";
+		for(int k = 1; k <=size; k++) out+=heap[k]+" ";
 		return out;
 	}
 	
 	public static void main(String[] args) {
-		Heap<String> h = new Heap<String> ();
-		h.insert("p");
-		h.insert("r");
-		h.insert("i");
-		h.insert("o");
-		System.out.println(h);
-		h.deleteMin();
-		System.out.println(h);
+//		Heap<String> h = new Heap<String> ();
+//		h.insert("p");
+//		h.insert("r");
+//		h.insert("i");
+//		h.insert("o");
+//		System.out.println(h);
+//		h.deleteMin();
+//		System.out.println(h);
+//		
 		
-		Heap<Integer> tmp = new Heap<Integer> ();
-		Integer[] a = {4,7,7,7,5,0,2,3,5,1};
+		Integer[] a = {3,7,5,11,10,6,8,15,20,13,12};
+//		Heap<Integer> tmp = new Heap<Integer> ();
+		Heap<Integer> tmp2 = new Heap<Integer> (a);
+		System.out.println(tmp2);
+		System.out.println("before call delemin");
+		tmp2.deleteMin();
+		System.out.println("after delemin "+ tmp2);
 		
-		for(int i = 0; i < a.length; i++) {
-			tmp.insert(a[i]);
-		}
-		System.out.println(tmp);
-		tmp.deleteMin();
-		System.out.println(tmp);
-		tmp.deleteMin();
-		System.out.println(tmp);
+//		for(int i = 0; i < a.length; i++) {
+//			tmp.insert(a[i]);
+//		}
+//		System.out.println(tmp);
+//		tmp.deleteMin();
+//		System.out.println(tmp);
+//		tmp.deleteMin();
+//		System.out.println(tmp);
 	}
 	
 	

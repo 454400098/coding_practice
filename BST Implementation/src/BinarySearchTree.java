@@ -114,10 +114,8 @@ public class BinarySearchTree {
     		root.val = minValue(root.right);
     		//Delete the inorder successor
     		root.right = deleteRec(root.right,root.val);
-    		
-    		
     	}
-    	
+    	System.out.println("cur node is " + root.val);
     	return root;
     }
     
@@ -140,8 +138,9 @@ public class BinarySearchTree {
 		s.insert(s.root, 70);
 		s.insert(s.root, 60);
 		s.insert(s.root, 80);
-		
-		
+//		s.levelorder(s.root);
+		s.deletenode(50);
+		System.out.println("after deletion");
 		s.levelorder(s.root);
 
 	}

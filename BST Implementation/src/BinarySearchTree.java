@@ -81,6 +81,54 @@ public class BinarySearchTree {
     	postorder(root.right);
     	System.out.println(root.val);
     }
+    
+    
+    public void deletenode(int key) {
+    	//node to be deleted is leaf -- remove
+    	root = deleteRec(root,key);
+    }
+    
+    node deleteRec(node root, int key) {
+    	/*base case : if tree is empty*/
+    	if(root == null) return root;
+    	/*otherwise recurs down*/
+    	if(key < root.val) {
+    		root.left = deleteRec(root.left,key);
+    	}
+    	else if (key > root.val) {
+    		root.right = deleteRec(root.right,key);
+    	}
+    	
+        // if key is same as root's key, then This is the node 
+        // to be deleted 
+    	else {
+    		if(root.left == null)
+    			return root.right;
+    		else if(root.right == null) {
+    			return root.left;
+    		}
+    		
+            // node with two children: Get the inorder successor (smallest 
+            // in the right subtree) 
+    		
+    		root.val = minValue(root.right);
+    		//Delete the inorder successor
+    		root.right = deleteRec(root.right,root.val);
+    		
+    		
+    	}
+    	
+    	return root;
+    }
+    
+    int minValue(node root) {
+    	int minv = root.val;
+    	while(root.left!=null) {
+    		minv = root.left.val;
+    		root = root.left;
+    	}
+    	return minv;
+    }
 
 	
 	public static void main(String[] args) {

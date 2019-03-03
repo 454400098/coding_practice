@@ -27,8 +27,20 @@ public class Solution {
 
 			max_heapify(Arr,largest,N);
 		}
-		
-
+	}
+	
+	public static void heap_sort(int Ar[]) {
+		int heap_size = Ar.length;
+		build_maxheap(Ar);
+		for(int i = Ar.length; i>=2; i--) {
+			int tmp = Ar[i];
+			Ar[i] = Ar[1];
+			Ar[1] = tmp;
+			heap_size-=1;
+			int[] heap = new int [heap_size+1];
+			System.arraycopy(Ar, 0, heap, 1, heap_size);
+			max_heapify(Ar,1,heap_size);
+		}
 		
 	}
 	

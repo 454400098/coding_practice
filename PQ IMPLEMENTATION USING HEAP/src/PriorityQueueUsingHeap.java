@@ -86,10 +86,11 @@ public class PriorityQueueUsingHeap <T extends Comparable<T>>{
 		pq.inser(1);
 		pq.inser(2);
 		pq.inser(3);
-		pq.inser(4);
-		
-		pq.delMax();
-		
+		System.out.print(pq.arr.length);
+//		pq.inser(4);
+//		
+//		pq.delMax();
+
 		System.out.print(pq);
 	}
 	
